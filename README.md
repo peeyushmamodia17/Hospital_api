@@ -18,6 +18,8 @@ Then run all the routes with data in Postman tool.
 
 For testing all the controllers i use chai and mocha.
 
+After passing Doctor login test collect token and paste it at all the places of remaining test where token needed.
+
 So for test all the controllers using all the test cases run command
 
 npm test
