@@ -20,6 +20,8 @@ For testing all the controllers i use chai and mocha.
 
 After passing Doctor login test collect token and paste it at all the places of remaining test where token needed.
 
+And in creating report test and finding report using id test place the id of patient in the url.
+
 So for test all the controllers using all the test cases run command
 
 npm test
