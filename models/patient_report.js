@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 
+//here we create report schema
 const reportSchema=new mongoose.Schema({
     status:{
         type:String,
@@ -21,5 +22,6 @@ const reportSchema=new mongoose.Schema({
 
 const report=mongoose.model('report',reportSchema);
 
+//export report schema
 
 module.exports=report;

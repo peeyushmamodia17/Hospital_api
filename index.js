@@ -1,26 +1,29 @@
+//import express
 const express=require('express');
 const path=require('path');
 const app=express();
 const port=8000;
-const expressLayouts=require('express-ejs-layouts');
-const sassMiddleware=require('node-sass-middleware');
+//import all the require modules
+
 const db=require('./config/mongoose');
-const middleware=require('./config/middleware');
 const session= require('express-session');
-const flash=require('connect-flash');
+const bodyParser = require('body-parser');
 const passport=require('passport');
 const MongoStore=require('connect-mongo')(session);
 //here we export the passport local and passport google oauth
-const passportLocal=require('./config/passport-local');
+//import passprt jwt for authetication
 const passportJWT = require('./config/passport-jwt');
 
+//It is use as middleware
 app.use(express.urlencoded());
-app.use(expressLayouts);
 
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname,'views'));
-app.set('layout extractStyles', true);
-app.set('layout extractScripts', true);
+//it is a bodyparser
+app.use(bodyParser.json());                                     
+app.use(bodyParser.urlencoded({extended: true}));               
+app.use(bodyParser.text());                                    
+app.use(bodyParser.json({ type: 'application/json'})); 
+
+
 
 // app.use(session({ cookie: { maxAge: 60000 }, 
 //     secret: 'woot',
@@ -45,22 +48,13 @@ app.use(session({
     )
 }));
 
-app.use(sassMiddleware({
-    src : './assets/scss',
-    dest :'./assets/css',
-    debug : true,
-    outputStyle : 'extended',
-    prefix : '/css'
-}))
-app.use(express.static('assets'));
+
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(passport.setAuthenticatedUser);
-app.use(flash());
-app.use(middleware.setFlash);
 app.use('/',require('./routes'));
 
+//here we listen server at port 8000
 app.listen(port,function(err){
     if(err){
         console.log("error in running the server on port");
@@ -68,3 +62,5 @@ app.listen(port,function(err){
 
     console.log("Server successfully running on port",port);
 })
+
+module.exports=app;

@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+//here we create patient schema
 const patientSchema=new mongoose.Schema({
     name:{
         type:String, 
@@ -18,6 +18,7 @@ const patientSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'user'
     },
+    //here we save all the reports of particular patient
     reports:[
         {
             type: mongoose.Schema.Types.ObjectId,
