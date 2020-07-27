@@ -49,7 +49,7 @@ describe('POST login',()=>{
     it('Doctor should log in',(done)=>{
         //pass the data
         let doctor={
-            email:"aman@gmail.com",
+            email:"amah@gmail.com",
             password:"123456"
         }
 
