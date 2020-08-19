@@ -1,6 +1,8 @@
 # Hospital_api
 It's a hospital api project. In which register the doctor then that doctor register patient and create the report of that patient.
 
+In this project i use Node.js,Express.js, MongoDb, Postman, Passport-jwt, Mocha And Chai.
+
 Firstly clone the project using url. 
 
 https://github.com/peeyushmamodia17/Hospital_api.git
